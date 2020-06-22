@@ -8,6 +8,6 @@ class Post extends StatefulWidget {
 class _PostState extends State<Post> {
   @override
   Widget build(BuildContext context) {
-    return Text("Post");
+    return const Text('Post');
   }
 }

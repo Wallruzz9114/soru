@@ -1,34 +1,22 @@
 import 'package:flutter/material.dart';
+import 'package:soru/src/app/locator.dart';
+import 'package:soru/src/app/router.dart';
+import 'package:soru/src/models/routes/routes.dart';
+import 'package:stacked_services/stacked_services.dart';
 
 class Soru extends StatelessWidget {
   @override
   MaterialApp build(BuildContext context) => MaterialApp(
-        title: 'BuddiesGram',
+        title: 'Soru',
         debugShowCheckedModeBanner: false,
+        initialRoute: Routes.startUpViewRoute,
         theme: ThemeData(
-          scaffoldBackgroundColor: Colors.black,
-          dialogBackgroundColor: Colors.black,
-          primarySwatch: Colors.grey,
-          cardColor: Colors.white70,
-          accentColor: Colors.black,
+          primaryColor: const Color.fromARGB(255, 9, 202, 172),
+          backgroundColor: const Color.fromARGB(255, 26, 27, 30),
+          textTheme: Theme.of(context).textTheme.apply(fontFamily: 'Open Sans'),
         ),
-        home: Scaffold(
-          appBar: AppBar(
-            title: Text(
-              'Welcome to Soru',
-              style: TextStyle(
-                color: Colors.white,
-                fontSize: 20.0,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-          ),
-          body: Center(
-            child: Text(
-              'Hello World',
-              style: TextStyle(color: Colors.white, fontSize: 30.0),
-            ),
-          ),
-        ),
+        onGenerateRoute: onGenerateRoute,
+        navigatorKey: locator<NavigationService>().navigatorKey
+            as GlobalKey<NavigatorState>,
       );
 }
